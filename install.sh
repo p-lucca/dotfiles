@@ -28,8 +28,8 @@ fi
 # List of essential packages to be installed
 INSTALL_PACKAGES=(
   gum nano unzip openssl libnotify rofi nautilus imv mpv signal-desktop thunderbird bash-completion
-  kitty lazygit docker docker-compose ansible tofu go air-bin goose nvim luarocks tree-sitter-cli
-  htop curl wget bind inetutils whois traceroute localsend-bin flatpak supersonic-desktop restish
+  kitty lazygit docker docker-compose ansible tofu terraform go air-bin goose nvim luarocks tree-sitter-cli
+  htop curl wget bind inetutils whois traceroute localsend-bin flatpak supersonic-desktop restish infisical-bin
   swaync kvantum-qt5 qt5-wayland qt6-wayland tableplus seahorse tldr fd wl-clipboard wl-clip-persist
   vulkan-radeon vulkan-tools mesa-utils libva-mesa-driver gnome-themes-extra evince imagemagick nmap
   bluez bluez-utils iwd iwgtk playerctl pavucontrol wireplumber alsa-utils fzf tectonic postgresql opencode-bin
