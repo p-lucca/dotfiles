@@ -66,7 +66,7 @@ fi
 
 # Define required systemd services
 SYSTEMD_SERVICES=(
-  bluetooth docker tailscaled iwd
+  bluetooth docker iwd
 )
 
 # Enable and start required systemd services
