@@ -26,3 +26,17 @@ if [[ -z $DISPLAY && $(tty) == /dev/tty1 ]]; then
     fi
 fi
 EOF
+
+# Configure SSH defaults and include support
+mkdir -p ~/.ssh/config.d
+chmod 700 ~/.ssh
+cat > ~/.ssh/config << 'EOF'
+# Main defaults
+Host *
+    ForwardAgent no
+    ForwardX11 no
+
+# Include other configs
+Include ~/.ssh/config.d/*
+EOF
+chmod 600 ~/.ssh/config
