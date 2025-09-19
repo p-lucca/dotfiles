@@ -1,0 +1,181 @@
+# ========================================================
+# Include system-wide configuration files
+# ========================================================
+include /etc/sway/config.d/*
+
+# ========================================================
+# Set environment variables
+# ========================================================
+
+# Set \$mod to Mod4 (Windows key, change if you prefer a different modifier)
+set \$mod Mod4
+
+# Set Alacritty as the terminal emulator
+set \$term alacritty
+
+# Use Rofi as the application launcher
+#set \$menu rofi -show drun -p "Search> " | xargs -I{} search {}
+set \$menu rofi -show drun -p "Search> " | xargs swaymsg exec --
+
+# ========================================================
+# Exec's
+# ========================================================
+# https://github.com/swaywm/sway/issues/5732#issuecomment-707534297
+exec systemctl --user import-environment
+
+# Gammastep (to adjust screen color temperature)
+exec gammastep
+
+# SwayNotificationCenter (notification daemon)
+exec swaync
+
+# Open apps on specific workspaces
+workspace 1
+exec zen
+
+workspace 2
+exec alacritty
+
+workspace 9
+exec flatpak run com.bitwarden.desktop
+
+workspace 8
+exec flatpak run io.github.dweymouth.supersonic
+
+workspace 10
+exec thunderbird
+exec signal-desktop
+
+# assign windows to specific workspace by using the app_id
+assign [app_id="zen"] workspace 1
+
+assign [app_id="Alacritty"] workspace 2
+
+assign [class="Supersonic"] workspace 8
+
+assign [class="Bitwarden"] workspace 9
+
+assign [app_id="thunderbird"] workspace 10
+assign [class="Signal"] workspace 10
+
+# Focus on Workspace 1 After Launching App
+exec swaymsg workspace 1
+
+# ========================================================
+# Key bindings
+# ========================================================
+
+# Basics:
+# ---------------------------
+
+# Start a terminal
+bindsym \$mod+Return exec \$term
+
+# Kill focused window
+bindsym \$mod+Shift+q kill
+
+# Start your launcher
+bindsym \$mod+d exec \$menu
+
+# Reload the configuration file
+bindsym \$mod+Shift+c reload
+
+# Lock the screen using swaylock
+bindsym \$mod+Mod1+l exec swaylock -f
+
+# Make the current focus fullscreen
+bindsym \$mod+f fullscreen
+
+# Toggle control center
+bindsym \$mod+Shift+n exec swaync-client -t -sw
+
+# Exit sway (logs you out of your Wayland session)
+bindsym \$mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+# Window movement bindings
+# ---------------------------
+
+# Move your focus around
+bindsym \$mod+Left focus left
+bindsym \$mod+Down focus down
+bindsym \$mod+Up focus up
+bindsym \$mod+Right focus right
+
+# Move windows around
+bindsym \$mod+Shift+Left move left
+bindsym \$mod+Shift+Down move down
+bindsym \$mod+Shift+Up move up
+bindsym \$mod+Shift+Right move right
+
+# Workspaces
+# ---------------------------
+
+# Switch to workspace
+bindsym \$mod+1 workspace number 1
+bindsym \$mod+2 workspace number 2
+bindsym \$mod+3 workspace number 3
+bindsym \$mod+4 workspace number 4
+bindsym \$mod+5 workspace number 5
+bindsym \$mod+6 workspace number 6
+bindsym \$mod+7 workspace number 7
+bindsym \$mod+8 workspace number 8
+bindsym \$mod+9 workspace number 9
+bindsym \$mod+0 workspace number 10
+
+# Move focused container to workspace
+bindsym \$mod+Shift+1 move container to workspace number 1
+bindsym \$mod+Shift+2 move container to workspace number 2
+bindsym \$mod+Shift+3 move container to workspace number 3
+bindsym \$mod+Shift+4 move container to workspace number 4
+bindsym \$mod+Shift+5 move container to workspace number 5
+bindsym \$mod+Shift+6 move container to workspace number 6
+bindsym \$mod+Shift+7 move container to workspace number 7
+bindsym \$mod+Shift+8 move container to workspace number 8
+bindsym \$mod+Shift+9 move container to workspace number 9
+bindsym \$mod+Shift+0 move container to workspace number 10
+
+# Note: Workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
+
+# Multimedia
+# ---------------------------
+
+# Audio keybindings
+bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+# Media playback keybindings
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+
+# ========================================================
+# Input settings
+# ========================================================
+
+input type:pointer {
+    dwt enabled               # Disable while typing
+    natural_scroll enabled    # Enable natural scrolling
+}
+
+# ========================================================
+# Look & feel
+# ========================================================
+# Disable titlebars
+default_border none
+default_floating_border none
+
+# Gap between containers
+#gaps inner 3
+#smart_gaps on
+
+# Set background
+output "*" bg $HOME/.config/bg.jpg fill
+
+# ========================================================
+# Status Bar configuration
+# ========================================================
+
+bar swaybar_command waybar

@@ -1,0 +1,17 @@
+[ ] Make swaync when click redirect to app
+[ ] Improve keybinds
+[ ] Change fonts to:
+    [ ] 0xProto Nerd Font
+    [ ] Use the same font 0xProto across everything
+[ ] Get current weather temp from https://wttr.in
+[ ] Write script to track Actually Reliable Status (maybe another repo)
+    [ ] Need check against all servers
+    [ ] Display health on waybar
+    [ ] Make not health notable
+        Display like carousell each server hostname
+    [ ] Notification
+        [ ] Popup if more than 10%
+        [ ] Sound if more than 25%
+
+[ ] Migrate from uwsm-app to app2unit?
+[ ] Maybe avoid the auto login or startup, so we can make a script to generate multiples users?

@@ -1,0 +1,22 @@
+# Looks
+export GDK_SCALE="1"
+export GTK_THEME="Adwaita:dark"
+
+# Cursor size
+export XCURSOR_SIZE="24"
+
+# Force all apps to use Wayland
+export GDK_BACKEND="wayland"
+export QT_QPA_PLATFORM="wayland"
+export QT_STYLE_OVERRIDE="kvantum"
+export SDL_VIDEODRIVER="wayland"
+export MOZ_ENABLE_WAYLAND="1"
+export ELECTRON_OZONE_PLATFORM_HINT="wayland"
+export OZONE_PLATFORM="wayland"
+
+# Keys seahorse
+export SSH_ASKPASS="/usr/lib/seahorse/ssh-askpass"
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
+# Make Chromium use XCompose and all Wayland
+export CHROMIUM_FLAGS="--enable-features=UseOzonePlatform --ozone-platform=wayland --gtk-version=4"

@@ -1,0 +1,53 @@
+{
+  "modules-left": [],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "custom/network",
+    "pulseaudio",
+    "tray",
+    "custom/lock",
+  ],
+  "clock": {
+    "interval": 1,
+    "format": "{:%d - %H:%M:%S}",
+    "tooltip": false,
+  },
+  "cpu": {
+    "interval": 1,
+    "format": " {usage:>2}%",
+    "tooltip": false,
+  },
+  "memory": {
+    "interval": 1,
+    "format": " {used:0.1f} GB",
+    "tooltip": false,
+  },
+  // TODO: maybe a systemd, which exports a variable called
+  // CUSTOM_NETWORK_STATUS_TEXT
+  "custom/network": {
+    "interval": 1,
+    "exec": "~/.config/waybar/scripts/network_status.sh",
+    "return-type": "json",
+    "tooltip": false,
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", " "],
+    },
+    "on-click": "uwsm-app -- pavucontrol",
+    "tooltip": false,
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10,
+  },
+  "custom/lock": {
+    "tooltip": false,
+    "on-click": "sh -c '(sleep 0.5s; hyprlock)' & disown",
+    "format": "",
+  },
+}
