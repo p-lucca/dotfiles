@@ -35,7 +35,7 @@ INSTALL_PACKAGES=(
   bluez bluez-utils iwd iwgtk playerctl pavucontrol wireplumber alsa-utils fzf tectonic postgresql opencode-bin
   uwsm libnewt hyprland hyprlock hyprpolkitagent hyprland-qtutils hyprsunset hyprpaper waybar gnome-calculator
   xdg-desktop-portal-hyprland xdg-desktop-portal-gtk zen-browser-bin bitwarden-bin goreleaser-bin
-  ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols speech-dispatcher
+  ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols speech-dispatcher minify
 )
 
 # Check for missing packages and install them
