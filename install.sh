@@ -34,7 +34,7 @@ INSTALL_PACKAGES=(
   vulkan-radeon vulkan-tools mesa-utils libva-mesa-driver gnome-themes-extra evince imagemagick nmap
   bluez bluez-utils iwd iwgtk playerctl pavucontrol wireplumber alsa-utils fzf tectonic postgresql opencode-bin
   uwsm libnewt hyprland hyprlock hyprpolkitagent hyprland-qtutils hyprsunset hyprpaper waybar gnome-calculator
-  xdg-desktop-portal-hyprland xdg-desktop-portal-gtk zen-browser-bin bitwarden-bin goreleaser-bin
+  xdg-desktop-portal-hyprland xdg-desktop-portal-gtk zen-browser-bin bitwarden-bin goreleaser-bin swaks
   ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols speech-dispatcher minify jq python-passlib
 )
 
